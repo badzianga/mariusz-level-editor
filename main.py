@@ -2,7 +2,7 @@ from sys import exit
 from time import time
 
 from pygame import init, quit
-from pygame.constants import K_ESCAPE, KEYDOWN, QUIT
+from pygame.constants import K_ESCAPE, KEYDOWN, QUIT, K_F12, K_F11
 from pygame.display import set_caption, set_icon, set_mode
 from pygame.display import update as update_display
 from pygame.event import get as get_events
@@ -42,6 +42,10 @@ def main() -> None:
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     return
+                elif event.key == K_F11:
+                    editor.toggle_grid()
+                elif event.key == K_F12:
+                    debug.toggle_fps()
 
         debug.draw()
 
