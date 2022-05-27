@@ -1,0 +1,9 @@
+# screen-related
+SCALE = 2
+DISPLAY_SIZE = (512, 288)
+SCREEN_SIZE = (DISPLAY_SIZE[0] * SCALE, DISPLAY_SIZE[1] * SCALE)
+CANVAS_SIZE = (240 * SCALE, 224 * SCALE)
+FPS = 60
+
+# colors
+BLACK = (0, 0, 0)
