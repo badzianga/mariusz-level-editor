@@ -34,8 +34,6 @@ def main() -> None:
         dt = (time() - last_time) * FPS
         last_time = time()
 
-        editor.update(dt)
-
         for event in get_events():
             if event.type == QUIT:
                 return
@@ -46,6 +44,9 @@ def main() -> None:
                     editor.toggle_grid()
                 elif event.key == K_F12:
                     debug.toggle_fps()
+
+        editor.update(dt)
+        editor.draw()
 
         debug.draw()
 

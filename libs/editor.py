@@ -1,3 +1,4 @@
+from numpy import zeros, loadtxt, savetxt, uint8
 from pygame.constants import K_LEFT, K_LSHIFT, K_RIGHT, K_RSHIFT
 from pygame.draw import line as draw_line
 from pygame.key import get_pressed
@@ -15,6 +16,8 @@ class Editor:
         self.theme = "red"
 
         self.x_scroll = 0
+        self.current_tile = 1
+        self.map_data = zeros((MAP_SIZE[1], MAP_SIZE[0]), uint8)
 
         self.show_grid = True
 
@@ -37,6 +40,7 @@ class Editor:
             )
 
     def draw(self) -> None:
+        """Draw interface od the editor."""
         # clear whole screen
         self.screen.fill(GRAY)
 
@@ -48,6 +52,7 @@ class Editor:
         self.screen.blit(self.canvas, (0, 0))
 
     def update(self, dt: float) -> None:
+        """Get inputs from player and scroll map."""
         keys = get_pressed()
         mult = 1
 
@@ -57,9 +62,8 @@ class Editor:
             self.x_scroll = max(self.x_scroll - SCROLL * mult * dt, 0)
         if keys[K_RIGHT]:
             self.x_scroll = min(self.x_scroll + SCROLL * mult * dt, MAX_SCROLL)
-        
-        self.draw()
 
     def toggle_grid(self) -> None:
+        """Toggle visibility of grid."""
         self.show_grid = not self.show_grid
 
