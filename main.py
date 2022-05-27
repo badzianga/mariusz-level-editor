@@ -13,6 +13,7 @@ from pygame.transform import scale
 
 from libs.constants import DISPLAY_SIZE, FPS, SCREEN_SIZE
 from libs.editor import Editor
+from libs.debug import Debug
 
 
 def main() -> None:
@@ -26,6 +27,7 @@ def main() -> None:
 
     display = Surface(DISPLAY_SIZE)
     editor = Editor(display)
+    debug = Debug(display, clock)
     last_time = time()
 
     while True:
@@ -40,6 +42,8 @@ def main() -> None:
             if event.type == KEYDOWN:
                 if event.key == K_ESCAPE:
                     return
+
+        debug.draw()
 
         screen.blit(scale(display, SCREEN_SIZE), (0, 0))
         update_display()

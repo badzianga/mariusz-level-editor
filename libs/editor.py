@@ -11,8 +11,11 @@ class Editor:
         self.theme = "red"
 
     def run(self, dt: float) -> None:
+        # clear whole screen
         self.screen.fill(BLACK)
 
+        # clear canvas
         self.canvas.fill(BACKGROUNDS[self.theme])
+
         self.screen.blit(self.canvas, (0, 0))
 

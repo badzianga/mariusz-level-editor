@@ -10,6 +10,7 @@ MAP_SIZE = (212, 14)
 # colors
 BLACK = (0, 0, 0)
 LIGHT_BLUE = (92, 148, 252)
+RED = (255, 0, 0)
 
 BACKGROUNDS = {
     "red": LIGHT_BLUE,
