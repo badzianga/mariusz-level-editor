@@ -2,7 +2,7 @@ from sys import exit
 from time import time
 
 from pygame import init, quit
-from pygame.constants import K_ESCAPE, KEYDOWN, QUIT, K_F12, K_F11
+from pygame.constants import K_ESCAPE, K_F11, K_F12, KEYDOWN, QUIT
 from pygame.display import set_caption, set_icon, set_mode
 from pygame.display import update as update_display
 from pygame.event import get as get_events
@@ -12,8 +12,8 @@ from pygame.time import Clock
 from pygame.transform import scale
 
 from libs.constants import DISPLAY_SIZE, FPS, SCREEN_SIZE
-from libs.editor import Editor
 from libs.debug import Debug
+from libs.editor import Editor
 
 
 def main() -> None:
@@ -34,7 +34,7 @@ def main() -> None:
         dt = (time() - last_time) * FPS
         last_time = time()
 
-        editor.run(dt)
+        editor.update(dt)
 
         for event in get_events():
             if event.type == QUIT:
